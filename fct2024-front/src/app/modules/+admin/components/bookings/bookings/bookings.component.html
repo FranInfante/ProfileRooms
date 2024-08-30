@@ -1,0 +1,115 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Día de Reserva</th>
+      <th scope="col">Hora de inicio</th>
+      <th scope="col">Hora de final</th>
+      <th scope="col">Nombre de la sala</th>
+      <th scope="col">Extras</th>
+      <th scope="col">Precio total</th>
+      <th scope="col">Estado de la reserva</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (booking of Bookings; track $index) {
+      <tr>
+        <td scope="col">{{booking.id}}</td>
+        <td scope="col">{{booking.user.username}}</td>
+        <td scope="col">{{booking.bookingDate}}</td>
+        <td scope="col">{{booking.timeStart}}</td>
+        <td scope="col">{{booking.timeEnd}}</td>
+        <td scope="col">{{booking.room.nameRoom}} - {{booking.room.office.city}}</td>
+        <td scope="col">
+          
+          @for (extra of booking.extras; track $index) {
+
+            {{extra.name}},
+
+          }
+
+        </td>
+        <td scope="col">{{booking.totalPrice}}</td>
+        <td scope="col">{{booking.status}}</td>
+        <td id="deleteModify">
+          <input type="button" value="Modificar" (click)="modifyBookingByIdToggle(booking.id)">
+          <input type="button" value="Borrar" (click)="deleteBookingById(booking.id)">
+        </td>
+      </tr>
+    }
+
+  </tbody>
+  </table>
+
+@if(modifyBookingTog){
+  
+  @if (booking) {
+    <form [formGroup]="modifyForm">
+      <table class="table table-striped">
+        <tbody>
+
+        <tr>
+
+        <th scope="row">{{booking.id}}</th>
+        <th scope="row">{{booking.user.username}}</th>
+
+        <td>
+          <button type="button" (click)="showCalendar(booking.id)">{{ date }}</button> 
+          @if (showCalendarId === booking.id && showCalendarToggle) {
+          <div class="container-calendar" >
+          <ngbd-datepicker-basic [id]="'calendary'"></ngbd-datepicker-basic>
+          </div>
+          }
+        </td>
+
+        <td>
+          <select class="form-select" [id]="'timeStart-' + booking.id" formControlName="timeStart">
+            <option selected>{{ booking.timeStart }}</option>
+            @for (time of ScheduleTime; track $index) {
+            <option [ngValue]="time">{{ time }}</option>
+            }
+          </select>
+        </td>
+
+        <td>
+          <select class="form-select" id="timeEnd" formControlName="timeEnd">
+            <option selected>{{ booking.timeEnd }}</option>
+            @for (time of ScheduleTime; track $index) {
+            <option [ngValue]="time">{{ time }}</option>
+            }
+          </select>
+        </td>
+
+        <td>
+          <select class="form-select" id="room"  formControlName="room" (click)="onChange($event)" >
+            <option selected [ngValue]="booking.room">{{ booking.room.nameRoom}} - {{booking.room.office.city}}</option>
+            @for (room of Rooms; track $index) {
+            <option [ngValue]="room">{{ room.nameRoom }} - {{ room.office.city }}</option>
+            }
+          </select>
+        </td>
+
+        <td>
+          <select #extrasSelect class="form-select" multiple aria-label="multiple select example" id='extras' formControlName="extras">
+            @for (extra of Extras; track $index) {
+             <option [ngValue]="extra">{{ extra.name }}</option>
+            }
+          </select>
+        </td>
+        
+        <td scope="row">{{booking.status}}</td>
+          
+        <td id="deleteModify">
+
+          <input type="button" value="Modificar" (click)="modifyBookingById(booking.id)">
+          <input type="button" value="Cancelar" (click)="toggleModifyBooking()">
+
+        </td>
+        </tr>
+
+    </tbody>
+  </table>
+</form>
+  }
+}

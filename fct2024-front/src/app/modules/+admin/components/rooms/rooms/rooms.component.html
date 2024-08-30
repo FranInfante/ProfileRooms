@@ -1,0 +1,146 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        
+            <th scope="col">Id</th>
+            <th scope="col">Nombre de la sala</th>
+            <th scope="col">Oficina</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Precio hora</th>
+            <th scope="col">Tamaño</th>
+            <th scope="col">Horarios</th>
+         
+        
+        <th scope="col"><input type="button" value="Crear" (click)="createRoomToggleButton()"></th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      @for (room of Rooms; track $index) {
+
+        <tr>
+          <th scope="row">{{room.id}}</th>
+          <td>{{room.nameRoom}}</td>
+          <td>{{room.office.province}}</td>
+          <td>{{room.office.city}}</td>
+          <td>{{room.priceHour}}</td>
+          <td>{{room.size}}</td>
+          <td>
+                08:00 - 20:00
+          </td>
+         
+          <td>
+            <div class="wrapper">
+              <div class="one">
+                <input type="button" value="Modificar" (click)="modifyRoomToggle(room.id)">
+              </div>
+              <div class="two">
+                <input type="button" value="Borrar" (click)="deleteRoomById(room.id)">
+              </div>
+            </div>
+          </td>
+        </tr>
+        
+      }
+    </tbody>
+  </table>
+  
+  @if(modifyRoomTog){
+    <form [formGroup]="roomForm">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th scope="row">{{Room?.id}}</th>
+            <td class="roomMod">
+              <input type="text" id="nameRoom" formControlName="nameRoom" class="form-control" [placeholder]="Room?.nameRoom" />
+            </td>
+            <td class="roomModSelect">
+              <select class="form-select" formControlName="office">
+                @for (office of Offices; track $index) {
+                  <option [ngValue]="office">{{office.city}}</option>
+                }
+              </select>
+            </td>
+            <td class="roomMod">
+              <input type="text" id="size" formControlName="size" class="form-control" [placeholder]="Room?.size" />
+            </td>
+            <td class="roomMod">
+              <input type="text" id="capacity" formControlName="capacity" class="form-control" [placeholder]="Room?.capacity" />
+            </td>
+            <td class="roomMod">
+              <input type="text" id="priceHour" formControlName="priceHour" class="form-control" [placeholder]="Room?.priceHour" />
+            </td>
+            <td class="roomMod">
+              <input type="text" id="description" formControlName="description" class="form-control" [placeholder]="Room?.description" />
+            </td>
+            <td class="roomMod">
+              <input type="text" id="pictureList" formControlName="pictureList" class="form-control" [placeholder]="Room?.pictureList" />
+            </td>
+            <td>
+              <div class="wrapper">
+                <div class="one">
+                  <button class="btn btn-primary" (click)="modifyRoom()">Guardar</button>
+                </div>
+                <div class="two">
+                  <input type="button" value="Cancelar" class="btn btn-secondary" (click)="modifyRoomToggleButton()">
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    
+        }
+        
+         @if(createRoomTog){
+
+          <form [formGroup]="roomForm" (ngSubmit)="createRoom()">
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <th scope="row">{{ Room?.id }}</th>
+                  <td class="roomMod">
+                    <input type="text" id="nameRoom" formControlName="nameRoom" class="form-control" placeholder="Nombre de la Sala" />
+                  </td>
+                  <td class="roomModSelect">
+
+                    <select class="form-select" formControlName="office" placeholder="Selecciona Oficina">
+            
+                      @for (office of Offices; track $index) {
+                        <option [ngValue]="office">{{office.city}}</option>
+                         }
+                    </select>
+
+                  </td>
+                  <td class="roomMod">
+                    <input type="text" id="priceHour" formControlName="priceHour" class="form-control" placeholder="Precio de la sala" />
+                  </td>
+                  <td class="roomMod">
+                    <input type="text" id="size" formControlName="size" class="form-control" placeholder="Tamaño" />
+                  </td>
+                  <td class="roomMod">
+                    <input type="text" id="capacity" formControlName="capacity" class="form-control" placeholder="Capacidad" />
+                  </td>
+                  <td class="roomMod">
+                    <input type="text" id="description" formControlName="description" class="form-control" placeholder="Descripción" />
+                  </td>
+                  <td class="roomMod">
+                    <input type="text" id="pictureList" formControlName="pictureList" class="form-control" placeholder="Foto" />
+                  </td>
+                  <td>
+                    <div class="wrapper">
+                      <div class="one">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                      </div>
+                      <div class="two">
+                        <input type="button" value="Cancelar" class="btn btn-secondary" (click)="createRoomToggleButton()">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          
+              }

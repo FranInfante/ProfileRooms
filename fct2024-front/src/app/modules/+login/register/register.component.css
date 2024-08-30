@@ -1,0 +1,19 @@
+.gradient-custom {
+  background: linear-gradient(to top, rgb(255, 181, 62), white);
+  }
+
+.background {
+  margin-left: 40%;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+.form-mov {
+  margin-left: 15px;
+}
+
+.card {
+  background:orange;
+  text: black;
+}
+

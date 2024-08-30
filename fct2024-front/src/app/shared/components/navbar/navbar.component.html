@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg bg-orange" aria-label="Custom navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="ASSET_URLS.home">
+      <img [src]="ASSET_URLS.logoUrl" alt="Logo" class="navbar-logo" >
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsCustom"
+      aria-controls="navbarsCustom" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsCustom">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" *ngIf="currentUser">
+          <a class="nav-link" [routerLink]="ASSET_URLS.rooms">Rooms</a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="currentUser && currentUser.role === 'ADMIN'" (mouseenter)="showAdminDropdown()" (mouseleave)="hideAdminDropdown()">
+          <a class="nav-link dropdown-toggle" id="adminDropdown" role="button" aria-expanded="false">
+            Admin
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown"
+            [ngClass]="{ 'show': showAdminMenu }">
+            <li>
+              <a class="dropdown-item" [routerLink]="ASSET_URLS.admin">Admin Panel</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown" *ngIf="currentUser" (mouseenter)="showProfileInfo()" (mouseleave)="hideProfileInfo()">
+          <a class="nav-link dropdown-toggle" [routerLink]="ASSET_URLS.profile" href="#" id="navbarDropdown" role="button" aria-expanded="false">
+            My Profile
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"
+            [ngClass]="{ 'show': showProfileLogo }">
+            <li>
+              <div class="dropdown-item">
+                <img [src]="userlogo" alt="User Logo" class="user-logo" *ngIf="showProfileLogo">
+              </div>
+            </li>
+            <li>
+              <div class="dropdown-item">
+                <strong>Username:</strong> {{ currentUser.username }}
+              </div>
+            </li>
+            <li>
+              <div class="dropdown-item">
+                <strong>Email:</strong> {{ currentUser.email }}
+              </div>
+            </li>
+            <li>
+              <div class="dropdown-item text-center">
+                <button class="btn btn-danger w-100" (click)="logout()">Logout</button>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" *ngIf="!currentUser">
+          <a class="nav-link" [routerLink]="ASSET_URLS.login">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

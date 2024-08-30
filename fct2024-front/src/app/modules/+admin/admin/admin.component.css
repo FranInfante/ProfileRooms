@@ -1,0 +1,77 @@
+#crud {
+  overflow-x: hidden;
+}
+
+#deleteModify {
+    width: 160px;
+  }
+  
+  #crud {
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 80%;
+  }
+  
+  #crudmenu {
+    margin-bottom: 3%;
+  }
+  
+  .crudmenu {
+    margin: 1%;
+    background-color: orange;
+  }
+  
+  .popover {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    
+   
+    background-color: orange;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+   
+  }
+  
+  .popover.show {
+    display: block;
+    
+  }
+  
+  .popover .popover-content {
+    
+    width: auto;
+    padding: 8%;
+    
+    
+    
+  }
+
+  .wrapper {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1px;
+    grid-auto-rows: minmax(10px, auto);
+  }
+  .one {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    margin-left: 30px;
+  }
+  .two {
+    grid-column: 2 / 2;
+    grid-row: 1 / 2;
+    
+    margin-left: 10px;
+  }
+
+  .modi{
+
+    margin: 5px;
+    margin-left: 30px;
+
+
+  }
+

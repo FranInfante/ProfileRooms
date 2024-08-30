@@ -1,0 +1,32 @@
+.container-fluid {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .image-card {
+    flex: 0 0 auto;
+  }
+
+  .room-detail {
+    flex: 1;
+    margin-left: 20px;
+  }
+
+  .img-rounded {
+    border-radius: 8px;
+    
+  }
+
+  .room-name{
+    color:orange !important;
+
+  }
+
+  .btn{
+    background-color: orange;
+  }
+
+.back-button{
+  margin-top: 20px;
+}

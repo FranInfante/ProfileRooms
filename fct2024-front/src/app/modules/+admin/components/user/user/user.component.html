@@ -1,0 +1,115 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Contraseña</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Email</th>
+        <th scope="col">D.N.I.</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">C.P.</th>
+        <th scope="col">Rol</th>
+
+        <th scope="col"><input type="button" value="Crear" (click)="createUserToggleButton()"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      @for (user of Users; track $index) {
+
+        <tr>
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.username}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.surname}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.dni}}</td>
+          <td>{{user.address}}</td>
+          <td>{{user.postcode}}</td>
+          <td>{{user.role}}</td>
+          <td>
+            <div class="wrapper">
+              <div class="one">
+                <input type="button" value="Modificar" (click)="modifyUserToggle(user.id ?? 0)">
+              </div>
+              <div class="two">
+                <input type="button" value="Borrar" (click)="deleteUserById(user.id ?? 0)">
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      }
+    </tbody>
+  </table>
+
+  @if(modifyUserTog){
+    <form [formGroup]="userForm">
+        <table class="table table-striped">
+        <tbody>
+        <tr>
+          <th scope="row">{{User?.id}}</th>
+          <td><input type="text" id="username" formControlName="username" class="form-control" placeholder="{{User?.username}}"/></td>
+          <td><input type="text" id="password" formControlName="password" class="form-control" placeholder="{{User?.password}}"/></td>
+          <td><input type="text" id="name" formControlName="name" class="form-control" placeholder="{{User?.name}}"/></td>
+          <td><input type="text" id="surname" formControlName="surname" class="form-control" placeholder="{{User?.surname}}"/> </td>
+          <td><input type="text" id="phone" formControlName="phone" class="form-control" placeholder="{{User?.phone}}"/></td>
+          <td><input type="email" id="email" formControlName="email" class="form-control" placeholder="{{User?.email}}"/></td>
+          <td><input type="text" id="dni" formControlName="dni" class="form-control" placeholder="{{User?.dni}}"/>  </td>
+          <td><input type="text" id="address" formControlName="address" class="form-control" placeholder="{{User?.address}}"/></td>
+          <td><input type="text" id="postcode" formControlName="postcode" class="form-control" placeholder="{{User?.postcode}}"/></td>
+          <td><input type="text" id="role" formControlName="role" class="form-control" placeholder="{{User?.role}}"/>  </td>
+            <td>
+              <div class="wrapper">
+                <div class="one">
+                  <button class="btn btn-primary" (click)="modifyUser()">Guardar</button>
+                </div>
+                <div class="two">
+                  <input type="button" value="Cancelar" class="btn btn-secondary" (click)="modifyUserToggleButton()">
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+        }
+         @if(createUserTog){
+    <form [formGroup]="userForm">
+        <table class="table table-striped">
+        <tbody>
+        <tr>
+          <th scope="row">{{Users?.length}}+1</th>
+          <td><input type="text" id="username" formControlName="username" class="form-control" placeholder="Usuario"/></td>
+          <td><input type="text" id="password" formControlName="password" class="form-control" placeholder="Contraseña"/></td>
+          <td><input type="text" id="name" formControlName="name" class="form-control" placeholder="Nombre"/></td>
+          <td><input type="text" id="surname" formControlName="surname" class="form-control" placeholder="Apellido"/> </td>
+          <td><input type="text" id="phone" formControlName="phone" class="form-control" placeholder="Teléfono"/></td>
+          <td><input type="email" id="email" formControlName="email" class="form-control" placeholder="Email"/></td>
+          <td><input type="text" id="dni" formControlName="dni" class="form-control" placeholder="DNI"/>  </td>
+          <td><input type="text" id="address" formControlName="address" class="form-control" placeholder="Dirección"/></td>
+          <td><input type="text" id="postcode" formControlName="postcode" class="form-control" placeholder="Código Postal"/></td>
+          <td><input type="text" id="role" formControlName="role" class="form-control" placeholder="Role"/>  </td>
+            <td>
+              <div class="wrapper">
+                <div class="one">
+                  <button class="btn btn-primary" (click)="createUser()">Guardar</button>
+                </div>
+                <div class="two">
+                  <input type="button" value="Cancelar" class="btn btn-secondary" (click)="createUserToggleButton()">
+                </div>
+              </div>
+            </td>
+
+
+          </tr>
+
+        </tbody>
+      </table>
+    </form>
+        }

@@ -1,0 +1,44 @@
+<div class="room-list">
+    <div class="filters">
+        <div class="filterFormat">
+            <label for="citySelect">Filtrar por ciudad</label>
+            <select #searchCity class="cityFilter" id="citySelect">
+                <option value="" selected>Todas las ciudades</option>
+                @for (office of offices; track $index) {
+                    <option value="{{office.city}}">{{office.city}}</option>
+                } @empty {
+                    <option selected>No existen oficinas disponibles</option>
+                }
+            </select>
+            <button class="search-button" (click)="searchByCity(searchCity.value)" >Buscar</button>
+        </div>
+        <div class="filterFormat">
+            <label for="citySelect">Filtrar por precio (hora)</label>
+            <select #searchByPrice class="cityFilter" id="citySelect">
+                <option value="" selected>Todos los precios</option>
+                @for (price of uniquePrices; track $index) {
+                    <option value="{{price}}">{{price}} €</option>
+                } @empty {
+                    <option selected>Sin habitaciones disponibles</option>
+                }
+            </select>
+            <button class="search-button" (click)="searchByPriceHour(searchByPrice.value)" >Buscar</button>
+        </div>
+    </div>
+
+    <div class="rooms">
+            @for (room of rooms; track $index) {
+            <div class="room" [routerLink]="[roomDetail,room.id]">
+                    <div class="info">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_CjeIt3douAWtm0AhdvLRADSwPzCSA-R_zA&s" alt="Portada de la habitación">
+                        <div class="letters">
+                            <h4><b>Identificador:</b> {{room.id}}</h4>
+                            <h4><b>Nombre habitación:</b>  {{room.nameRoom}}</h4>
+                        </div>
+                    </div>
+            </div>
+            } @empty {
+                <h2>No hay habitaciones disponibles.</h2>
+            }
+    </div>
+</div>

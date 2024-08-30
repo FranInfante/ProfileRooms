@@ -1,0 +1,68 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+
+       
+        <th scope="col">Nombre de extra</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Precio por hora</th>
+    
+        <th scope="col"><input type="button" value="Crear" (click)="createExtraTogg()"></th>
+       
+      </tr>
+    </thead>
+    <tbody>
+        @for (extra of Extras; track $index) {
+      <tr>
+       
+        <td>{{extra.name}}</td>
+        <td>{{extra.description}}</td>
+        <td>{{extra.priceHour}}</td>
+    
+      
+        <td id="deleteModify">
+
+            <input type="button" value="Modificar">
+            <input type="button"  value="Borrar" (click)="deleteExtraById(extra.id)">
+
+        </td>
+
+      </tr>
+    }
+    </tbody>
+</table>
+@if (createExtraTog) {
+<form [formGroup]="createForm">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+    
+           
+            <th scope="col">Nombre de extra</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Precio por hora</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" formControlName="name" defaultValue="extra.name"></td>
+
+            <td><input type="text" formControlName="description" defaultValue="extra.description"></td>
+
+            <td><input type="text" formControlName="priceHour" defaultValue="extra.priceHour"></td>
+          
+            <td id="deleteModify">
+                <input type="button" value="Crear" (click)="createExtra()">
+                <input type="button"  value="Borrar" (click)="cancelCreate()">
+            </td>
+    
+          </tr>
+        
+        </tbody>
+
+    </table>
+
+</form>
+
+}

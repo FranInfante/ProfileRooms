@@ -1,0 +1,43 @@
+<div class="container-fluid">
+
+  <div class="booking-list">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="text-center">USUARIO</th>
+          <th class="text-center">OFICINA</th>
+          <th class="text-center">SALA</th>
+          <th class="text-center">HORA COMIENZO</th>
+          <th class="text-center">HORA FINALIZACIÓN</th>
+          <th class="text-center">ESTADO DE LA RESERVA</th>
+        </tr>
+      </thead>
+      <tbody>
+       @for (booking of bookingList; track $index) {
+        <tr>
+          <td class="text-center">{{booking.user.name}}</td>
+          <td class="text-center">{{booking.room.office.province}}</td>
+          <td class="text-center">{{booking.room.nameRoom}}</td>
+          <td class="text-center">{{booking.timeStart}}</td>
+          <td class="text-center">{{booking.timeEnd}}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary">Aceptar</button>
+              <button type="button" class="btn btn-danger">Rechazar</button>
+            </div>
+          </td>
+        </tr>
+        } @empty {
+            <h3 class="text-center">No hay reservas pendientes de aprobar en el día de hoy</h3>
+        }
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container-calendar">
+    <ngbd-datepicker-basic></ngbd-datepicker-basic>
+</div>
+
+

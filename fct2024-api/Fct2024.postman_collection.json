@@ -1,0 +1,27 @@
+{
+	"info": {
+		"_postman_id": "2704ae6f-1e21-467e-a04e-d967b354f6e5",
+		"name": "Fct2024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34442260"
+	},
+	"item": [
+		{
+			"name": "/list",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/extras/delete/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/extras/delete/1"
+			},
+			"response": []
+		}
+	]
+}

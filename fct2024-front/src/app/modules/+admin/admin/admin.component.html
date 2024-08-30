@@ -1,0 +1,39 @@
+<div id="crud">
+
+<div id="crudmenu">
+
+    <input type="button" value="Users" class="crudmenu" (click)="showUser()">
+    <input type="button" value="Rooms" class="crudmenu" (click)="showRoom()">
+    <input type="button" value="Bookings" class="crudmenu" (click)="showBooking()">
+    <input type="button" value="Extras" class="crudmenu" (click)="showExtra()">
+    
+</div>
+
+@if(userToggle){
+ 
+<app-user></app-user>
+
+}
+
+@if(roomToggle){
+   
+<app-rooms></app-rooms>
+
+}
+
+
+@if(bookingToggle){
+
+<app-bookings></app-bookings>
+   
+}
+
+    
+@if(extraToggle){
+   
+<app-extras></app-extras>
+
+}
+
+</div>
+

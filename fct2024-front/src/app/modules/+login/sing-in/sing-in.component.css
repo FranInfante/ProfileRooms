@@ -1,0 +1,15 @@
+.gradient-custom {
+  background: linear-gradient(to top, rgb(255, 181, 62), white);
+  }
+  .card {
+    background:orange;
+    text: black;
+  }
+
+  .button-create {
+    text: rgb(78, 76, 76);
+  }
+
+  .text-randon{
+    text: rgb(78, 76, 76);
+  }

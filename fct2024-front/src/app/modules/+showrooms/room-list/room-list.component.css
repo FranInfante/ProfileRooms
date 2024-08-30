@@ -1,0 +1,98 @@
+.room-list {
+    padding-top: 20px;
+    margin-top: -8px;
+    padding-bottom: 10%;
+    background: linear-gradient(to top, rgb(255, 181, 62), rgb(255, 249, 242));
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+}
+
+.filterFormat {
+    margin-bottom: 20px;
+    margin-left: 2%;
+}
+
+.filterFormat label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.filterFormat select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.filterFormat select option {
+    font-size: 16px;
+}
+
+.search-button {
+    background-color: #007bff;
+    margin-top: 10px;
+    color: #fff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.room-list h2 {
+    text-align: center;
+    font-size: 50px;
+}
+
+.rooms {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 20px; 
+}
+
+
+.rooms ul {
+    list-style-type: none;
+}
+
+.room {
+    padding-top: 5%;
+    background-color: rgb(240, 250, 255);
+    border: 2px solid black; 
+    border-radius: 6px;
+    margin-bottom: 5%;
+}
+
+.room a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.letters h3 {
+    font-size: 45px;
+}
+
+.room img {
+    width: auto; 
+    height: auto; 
+    margin-bottom: 10px; 
+}
+

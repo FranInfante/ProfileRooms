@@ -1,0 +1,10 @@
+.container-fluid{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.container-calendar{
+    
+    text-align: center;
+}

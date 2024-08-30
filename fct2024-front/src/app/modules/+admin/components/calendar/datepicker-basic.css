@@ -1,0 +1,67 @@
+/* Agrega los estilos personalizados aquí */
+.ngb-dp-month {
+  width: 300px;
+  height: auto;
+  padding: 1rem;
+  background-color: rgba(204, 204, 204, 0.658); /* Naranja claro */
+  border-radius: 8px;
+}
+
+.ngb-dp-day {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #000000;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+.ngb-dp-day.selected {
+  background-color: #ff8c00; /* Naranja */
+  color: white; /* Texto blanco */
+  border-color: #ff8c00;
+}
+
+.ngb-dp-day:hover {
+  background-color: orange; /* Naranja */
+  color: orange;
+  border-color: #f7f5f4;
+}
+
+.ngb-dp-navigation {
+  font-size: 1.2rem;
+  background-color: #3d9178;
+  color: #c98d1f;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ngb-dp-navigation-chevron {
+  fill: orange;
+}
+
+
+.ngb-dp-weekday {
+  font-size: 1rem;
+  color: #ff8c00;
+  font-weight: bold;
+}
+
+.ngb-dp-week {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.ngb-dp-day.ngb-dp-disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+

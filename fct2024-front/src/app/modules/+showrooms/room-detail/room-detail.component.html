@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="image-card p-2">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_CjeIt3douAWtm0AhdvLRADSwPzCSA-R_zA&s"
+      class="img-rounded"
+      width="500"
+      height="450"
+      alt="room"
+    />
+  </div>
+
+  <div class="room-detail">
+    <h2 class="room-name">{{ room?.nameRoom | uppercase }}</h2>
+    <p class="room-description">{{ room?.description }}</p>
+    <div class="room-detail-group">
+    <ul class="list-group list-group-compact">
+      <li class="list-group-item">
+        <p>Tamaño de la sala: {{ room?.size }}</p>
+      </li>
+      <li class="list-group-item">
+        <p>Precio por hora: {{ room?.priceHour | number: '1.0-0' | currency: 'EUR' }}</p>
+      </li>
+      <li class="list-group-item">
+        <p>Capacidad: {{ room?.capacity }}</p>
+      </li>
+      <li class="list-group-item">
+        Oficina a la que pertenece la sala:
+        <ul>
+          <li>{{ room?.office?.address }}</li>
+          <li>{{ room?.office?.city }}, código postal: {{ room?.office?.postcode }},
+          {{room?.office?.province}}.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+    <div class="back-button text-end">
+      <button type="button" class="btn btn-default btn-lg" [routerLink]="[empty]">Volver</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+package es.profile.rooms.util;
+
+public class UriConstants {
+    public static final String HOST = "http://localhost";
+    public static final String PORT = "8080";
+    public static final String ANGULAR_PORT = ":4200";
+    public static final String ANGULAR_HOST = HOST + ANGULAR_PORT;
+    public static final String CONTEXT_PATH = "/api";
+    public static final String VERSION = "/v1";
+    public static final String BASE_URL = CONTEXT_PATH + VERSION;
+    public static final String BOOKINGS = BASE_URL + "/bookings";
+    public static final String BOOKING_BY_ID = "/{bookingId}";
+    public static final String BOOKINGS_BY_DATE = "/date/{bookingsDate}";
+    public static final String BOOKINGS_BY_ROOM_ID = "/room/{roomId}";
+    public static final String BOOKINGS_BY_ROOM_ID_TIMES = "/room/{roomId}/times";
+    public static final String BOOKINGS_ACCEPTED = "/accepted";
+    public static final String BOOKINGS_DENIED = "/denied";
+    public static final String BOOKINGS_STANDBY = "/standby";
+    public static final String BOOKINGS_BY_USER_ID = "/user/{userId}";
+    public static final String ADMIN_DENY_BOOKING = "/admin/deny/{bookingId}";
+    public static final String ADMIN_ACCEPT_BOOKING = "/admin/accept/{bookingId}";
+    public static final String ADMIN_BOOKINGS_BY_DATE_STATUS = "/admin/date/status";
+    public static final String ADMIN_CREATE_USER = "/admin/create/user";
+    public static final String ADMIN_BOOKINGS_CONFLICT = "/conflict";
+    public static final String EXTRAS = BASE_URL + "/extras";
+    public static final String EXTRA_BY_ID = "/{id}";
+    public static final String OFFICES = BASE_URL + "/offices";
+    public static final String OFFICE_BY_ID = "/{id}";
+    public static final String OFFICES_BY_PROVINCE = "/province/{province}";
+    public static final String ROOMS = BASE_URL + "/rooms";
+    public static final String ROOM_BY_ID = "/{id}";
+    public static final String ROOMS_BY_NAME = "/name/{name}";
+    public static final String ROOMS_BY_SIZE = "/size/{size}";
+    public static final String ROOMS_BY_CAPACITY = "/capacity/{capacity}";
+    public static final String ROOMS_BY_PRICE_HOUR = "/priceHour/{priceHour}";
+    public static final String ROOMS_BY_AVAILABILITY = "/availability/{availability}";
+    public static final String ROOMS_BY_OFFICE_CITY = "/officeCity/{officeCity}";
+    public static final String USERS = BASE_URL + "/users";
+    public static final String USER_BY_ID = "/{id}";
+    public static final String USERADMIN_BY_ID = "/admin/{id}";
+    public static final String USERS_SEARCH = "/search";
+    public static final String USERS_LOGIN = "/login";
+    public static final String USERS_AUTH = "/authenticate";
+    public static final String USERS_INFO = "/information";
+}
